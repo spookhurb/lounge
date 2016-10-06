@@ -689,6 +689,11 @@ $(function() {
 		})
 		.tab(complete, {hint: false});
 
+	// On mobile, there is an icon next to "Send message" to cycle through nicks
+	$("#cycle-nicks").on("touchstart", function() {
+		input.triggerHandler($.Event("keydown.tabcomplete", {which: 9}));
+	});
+
 	$("#form").on("submit", function(e) {
 		e.preventDefault();
 		var text = input.val();
